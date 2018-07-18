@@ -20,14 +20,23 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/add', (req, res) => {
-  console.log(req.body);
   const data = _.pick(req.body, ['name', 'score', 'time']);
-  console.log('data:', data);
 
   Scoreboard.create(data)
     .then(score => {
       Scoreboard.find({}).then(scores => {
-        scores = scores.map(score => _.pick(score, ['name', 'score', 'time']));
+        scores = scores
+          .sort((scoreA, scoreB) => {
+            return scoreA.score > scoreB.score
+              ? 1
+              : scoreA.score < scoreB.score
+                ? -1
+                : 0;
+          })
+          .map((score, index) => {
+            score = _.pick(score, ['name', 'score', 'time']);
+            return { rank: index + 1, ...score };
+          });
         res.send({ scores });
       });
     })
