@@ -1,0 +1,26 @@
+{
+  "name": "scoreboard-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:JethroF22/scoreboard-api.git",
+  "author": "Jethro W. Fredericks <fredericks22.jethro@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server/server.js "
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "mongodb": "^3.1.1",
+    "mongoose": "^5.2.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3",
+    "supertest": "^3.1.0"
+  }
+}
