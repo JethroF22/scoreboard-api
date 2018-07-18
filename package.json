@@ -6,7 +6,9 @@
   "author": "Jethro W. Fredericks <fredericks22.jethro@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node server/server.js "
+    "start": "node server/server.js ",
+    "test-express": "cross-env NODE_ENV=test mocha server/**/*.test.js",
+    "test-watch": "nodemon --exec \"npm run test-express\""
   },
   "dependencies": {
     "cors": "^2.8.4",
